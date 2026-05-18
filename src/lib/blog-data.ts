@@ -8,6 +8,11 @@ export type Essay = {
   readTime: string;
   excerpt: string;
   body: string[]; // each entry is one paragraph
+  source: {
+    title: string; // original article title
+    publisher: string; // outlet / author
+    href: string; // canonical URL
+  };
 };
 
 export const essays: Essay[] = [
@@ -23,6 +28,11 @@ export const essays: Essay[] = [
       "For residents living in underserved or informal communities, the absence of reliable infrastructure creates a constant struggle for survival. Without formal access to water, electricity, sanitation, or transportation, households spend significant amounts of time and money securing basic needs. This reduces opportunities for education, employment, and economic mobility. In many cities, the lack of infrastructure effectively creates invisible borders that separate economically connected populations from marginalized communities.",
       "This inequality produces what economists describe as the \"poverty premium,\" where low-income residents pay more for lower-quality services. In cities such as Nairobi and Manila, informal settlers may pay several times more per liter of water purchased from private vendors than wealthier households connected to municipal systems. Climate change further intensifies these inequalities. Flooding, extreme heat, and infrastructure failures disproportionately affect vulnerable communities that lack resilient drainage systems, flood barriers, or disaster-resistant housing. In this context, resilient infrastructure becomes more than a development goal; it becomes a form of economic protection that prevents temporary crises from evolving into long-term poverty traps.",
     ],
+    source: {
+      title: "Increase access to resilient and affordable urban services and infrastructure",
+      publisher: "Systems Change Lab",
+      href: "https://systemschangelab.org/cities/improve-urban-infrastructure-services",
+    },
   },
   {
     slug: "digital-and-data-evolution",
@@ -37,6 +47,11 @@ export const essays: Essay[] = [
       "Despite these advantages, digital transformation also introduces new forms of inequality. When smart technologies are concentrated only in wealthier districts, informal communities become invisible within urban data systems. Areas lacking digital monitoring are often excluded from future investment, planning, and service upgrades. In effect, the digital divide reinforces the existing urban services divide.",
       "Inclusive digital governance therefore becomes essential. Data-driven systems must represent the realities of the entire city rather than only its formal sectors. When implemented equitably, digital infrastructure can reduce non-revenue water losses, improve energy reliability, strengthen disaster preparedness, and support modern service economies. Ultimately, technology should function as a tool for inclusion rather than another layer of urban exclusion.",
     ],
+    source: {
+      title: "The Utilities of Cities",
+      publisher: "World Bank Blogs",
+      href: "https://blogs.worldbank.org/en/sustainablecities/the-utilities-of-cities",
+    },
   },
   {
     slug: "structural-transformations",
@@ -51,6 +66,11 @@ export const essays: Essay[] = [
       "One example of this approach is the expansion of Bus Rapid Transit (BRT) systems into underserved areas. Reliable and affordable transportation does more than move people efficiently; it connects marginalized communities to formal labor markets and educational opportunities. Similarly, multi-purpose infrastructure projects such as parks that double as flood-control systems generate both environmental and social benefits. These integrated investments create higher long-term social returns by improving resilience, mobility, and public wellbeing simultaneously.",
       "Ultimately, physical connectivity is closely tied to social mobility. A city that remains physically divided through unequal infrastructure and disconnected services will also remain economically divided.",
     ],
+    source: {
+      title: "Transformations to Solve Urban Inequality",
+      publisher: "World Resources Institute",
+      href: "https://www.wri.org/insights/transformations-to-solve-urban-inequality",
+    },
   },
   {
     slug: "circular-urban-metabolism",
@@ -64,6 +84,11 @@ export const essays: Essay[] = [
       "Through circular systems, wastewater can be converted into energy, organic waste can support urban agriculture, and recycled materials can be reintegrated into local economies. This shift toward circular urban metabolism is not only an environmental strategy but also an economic one. By reducing dependence on imported resources and generating localized industries, cities can create new forms of employment and improve long-term sustainability.",
       "For underserved communities, decentralized waste-to-energy systems and localized recycling initiatives can also improve access to essential services. In this sense, circular infrastructure transforms public health risks into opportunities for resilience and economic inclusion.",
     ],
+    source: {
+      title: "As waste-to-energy incinerators spread in Southeast Asia, so do concerns",
+      publisher: "Mongabay",
+      href: "https://news.mongabay.com/2022/12/as-waste-to-energy-incinerators-spread-in-southeast-asia-so-do-concerns/",
+    },
   },
   {
     slug: "inclusive-governance",
@@ -78,6 +103,11 @@ export const essays: Essay[] = [
       "Inclusive governance also depends on inclusive data systems. Informal communities are frequently excluded from official urban maps and datasets, making them invisible within planning processes. Participatory mapping and digital inclusion initiatives allow underserved populations to become visible within urban decision-making systems.",
       "Ultimately, cities function most effectively when governance structures reflect the diversity and realities of the populations they serve.",
     ],
+    source: {
+      title: "Urban governance is vital for cities to prosper",
+      publisher: "United Nations Development Programme",
+      href: "https://www.undp.org/blog/urban-governance-vital-cities-prosper",
+    },
   },
 ];
 

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { PageHeader } from "@/components/page-header";
 import { essays, findEssay } from "@/lib/blog-data";
 
@@ -55,6 +55,28 @@ export default async function EssayPage({
             <p key={i}>{para}</p>
           ))}
         </div>
+
+        {/* Original source — link out to the blog post the team summarized */}
+        <aside className="mt-14 rounded-2xl border border-border/60 bg-muted/30 p-6 md:p-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
+            Original source
+          </p>
+          <h2 className="mt-3 text-xl font-semibold tracking-tight md:text-2xl">
+            {essay.source.title}
+          </h2>
+          <p className="mt-1.5 text-sm text-muted-foreground">
+            {essay.source.publisher}
+          </p>
+          <a
+            href={essay.source.href}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-5 inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Read the original on {essay.source.publisher}
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
+        </aside>
 
         <hr className="my-14 border-border/60" />
 

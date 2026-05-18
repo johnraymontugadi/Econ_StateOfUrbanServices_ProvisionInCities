@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
@@ -10,19 +10,70 @@ import { cn } from "@/lib/utils";
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const isHomepage = pathname === "/";
+
+  // Header is transparent over the homepage's video hero, then turns opaque
+  // once the user has scrolled past it. Everywhere else, always opaque.
+  const [scrolled, setScrolled] = useState(!isHomepage);
+
+  useEffect(() => {
+    if (!isHomepage) {
+      setScrolled(true);
+      return;
+    }
+
+    const compute = () => {
+      const threshold = Math.max(200, window.innerHeight * 0.7);
+      setScrolled(window.scrollY > threshold);
+    };
+
+    compute();
+    window.addEventListener("scroll", compute, { passive: true });
+    window.addEventListener("resize", compute);
+    return () => {
+      window.removeEventListener("scroll", compute);
+      window.removeEventListener("resize", compute);
+    };
+  }, [isHomepage]);
+
+  // When `transparent`, we add the `dark` class so theme tokens (foreground,
+  // muted-foreground, border, etc.) used in this subtree flip to their dark
+  // values automatically — keeping nav text readable over the dark video.
+  const transparent = !scrolled;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
+    <header
+      className={cn(
+        "sticky top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300",
+        transparent
+          ? "dark border-b border-transparent bg-transparent"
+          : "border-b border-border/60 bg-background/80 backdrop-blur-md",
+      )}
+    >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6 md:py-4">
         <Link
           href="/"
           className="group flex items-center gap-2 text-lg font-semibold tracking-tight"
           onClick={() => setOpen(false)}
         >
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-primary to-accent text-primary-foreground transition-transform group-hover:scale-105 group-hover:rotate-3">
-            <span className="text-sm font-black">SU</span>
-          </span>
-          <span className="hidden sm:inline bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          {/* Site logo icon — lives in /public/logo-icon.svg */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo-icon.svg"
+            alt=""
+            aria-hidden
+            width={32}
+            height={32}
+            className="h-8 w-8 shrink-0 transition-transform group-hover:scale-105 group-hover:rotate-3"
+          />
+          <span
+            className={cn(
+              "hidden sm:inline transition-colors duration-300",
+              transparent
+                ? "text-white"
+                : "bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent",
+            )}
+          >
             {siteConfig.name}
           </span>
         </Link>

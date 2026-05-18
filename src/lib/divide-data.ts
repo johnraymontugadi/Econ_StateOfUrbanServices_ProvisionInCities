@@ -45,7 +45,7 @@ export type Beat = {
   /** Optional longer prose for hover/expand state — typically the "why this matters". */
   detail?: string;
   maria: Moment;
-  pia: Moment;
+  clara: Moment;
   source: { label: string; href: string };
 };
 
@@ -58,8 +58,8 @@ export const maria: Character = {
   bio: "Lives in a mid-rise condo. Municipal water, grid power, MRT to the office in BGC.",
 };
 
-export const pia: Character = {
-  name: "Pia",
+export const clara: Character = {
+  name: "Clara",
   age: 28,
   occupation: "Sari-sari store helper, part-time laundry",
   neighborhood: "Tondo",
@@ -79,12 +79,12 @@ export const beats: Beat[] = [
       distance: 0,
       description: "Phone alarm at 06:00. The AC hums; the building is quiet.",
     },
-    pia: {
+    clara: {
       minutes: 45,
       cost: 0,
       distance: 0,
       description:
-        "05:15. Roosters. Pia is up before the sun so she can beat the queue at the vendor truck.",
+        "05:15. Roosters. Clara is up before the sun so she can beat the queue at the vendor truck.",
     },
     source: { label: "Gozun & De Castro (2026)", href: "/papers" },
     detail:
@@ -101,7 +101,7 @@ export const beats: Beat[] = [
       distance: 0,
       description: "She turns the tap. Water comes. She fills the kettle for coffee.",
     },
-    pia: {
+    clara: {
       minutes: 35,
       cost: 60,
       distance: 800,
@@ -123,7 +123,7 @@ export const beats: Beat[] = [
       distance: 0,
       description: "Ten-minute shower. Pressure is steady.",
     },
-    pia: {
+    clara: {
       minutes: 7,
       cost: 0,
       distance: 0,
@@ -145,7 +145,7 @@ export const beats: Beat[] = [
       distance: 0,
       description: "Eggs on the gas range, coffee in the electric kettle.",
     },
-    pia: {
+    clara: {
       minutes: 25,
       cost: 5,
       distance: 0,
@@ -167,7 +167,7 @@ export const beats: Beat[] = [
       distance: 400,
       description: "Five minutes to the MRT. Thirty minutes to the office.",
     },
-    pia: {
+    clara: {
       minutes: 80,
       cost: 40,
       distance: 1200,
@@ -189,7 +189,7 @@ export const beats: Beat[] = [
       distance: 0,
       description: "Refills her bottle from the office dispenser. Free.",
     },
-    pia: {
+    clara: {
       minutes: 0,
       cost: 5,
       distance: 0,
@@ -208,11 +208,11 @@ export const beats: Beat[] = [
       distance: 0,
       description: "Office power doesn't flicker.",
     },
-    pia: {
+    clara: {
       minutes: 60,
       cost: -60,
       distance: 0,
-      description: "The store closes for an hour during the outage. Pia loses the wage.",
+      description: "The store closes for an hour during the outage. Clara loses the wage.",
     },
     source: { label: "Bibri & Krogstie (2024)", href: "/papers" },
     detail:
@@ -229,7 +229,7 @@ export const beats: Beat[] = [
       distance: 400,
       description: "MRT, ten minutes' walk, home. Errand on the way.",
     },
-    pia: {
+    clara: {
       minutes: 90,
       cost: 40,
       distance: 1200,
@@ -248,7 +248,7 @@ export const beats: Beat[] = [
       distance: 0,
       description: "Turns the tap to start dinner.",
     },
-    pia: {
+    clara: {
       minutes: 25,
       cost: 40,
       distance: 600,
@@ -267,7 +267,7 @@ export const beats: Beat[] = [
       distance: 0,
       description: "Gas range. Dishwasher. Fifty minutes start to finish.",
     },
-    pia: {
+    clara: {
       minutes: 8,
       cost: 5,
       distance: 0,
@@ -286,7 +286,7 @@ export const beats: Beat[] = [
       distance: 0,
       description: "Building chute. One minute.",
     },
-    pia: {
+    clara: {
       minutes: 5,
       cost: 0,
       distance: 100,
@@ -308,7 +308,7 @@ export const beats: Beat[] = [
       distance: 0,
       description: "Brushes teeth. AC on low. Sleeps.",
     },
-    pia: {
+    clara: {
       minutes: 5,
       cost: 5,
       distance: 0,
@@ -318,8 +318,20 @@ export const beats: Beat[] = [
   },
 ];
 
+/** Format a "HH:MM" 24-hour string as a 12-hour string with AM/PM. */
+export function formatTime(time24: string): string {
+  const [hStr, mStr] = time24.split(":");
+  const hour24 = Number(hStr);
+  const minute = Number(mStr);
+  const period = hour24 >= 12 ? "PM" : "AM";
+  let hour12 = hour24 % 12;
+  if (hour12 === 0) hour12 = 12;
+  const mm = String(minute).padStart(2, "0");
+  return `${hour12}:${mm} ${period}`;
+}
+
 /** Sum the moments for one character across an array of beats. */
-export function totalsFor(beats: Beat[], side: "maria" | "pia") {
+export function totalsFor(beats: Beat[], side: "maria" | "clara") {
   return beats.reduce(
     (acc, b) => ({
       minutes: acc.minutes + b[side].minutes,
@@ -332,5 +344,5 @@ export function totalsFor(beats: Beat[], side: "maria" | "pia") {
 
 export const dayTotals = {
   maria: totalsFor(beats, "maria"),
-  pia: totalsFor(beats, "pia"),
+  clara: totalsFor(beats, "clara"),
 };

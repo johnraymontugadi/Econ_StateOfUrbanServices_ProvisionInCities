@@ -17,9 +17,9 @@ function fmtCost(value: number) {
 }
 
 export function DaySummary() {
-  const minuteGap = dayTotals.pia.minutes - dayTotals.maria.minutes;
-  const costGap = dayTotals.pia.cost - dayTotals.maria.cost;
-  const distanceGap = dayTotals.pia.distance - dayTotals.maria.distance;
+  const minuteGap = dayTotals.clara.minutes - dayTotals.maria.minutes;
+  const costGap = dayTotals.clara.cost - dayTotals.maria.cost;
+  const distanceGap = dayTotals.clara.distance - dayTotals.maria.distance;
   const hoursOnly = (minuteGap / 60).toFixed(1);
 
   // Annualized impact (250 working days)
@@ -27,13 +27,16 @@ export function DaySummary() {
   const annualPesos = Math.round(costGap * 250);
 
   return (
-    <section className="bg-zinc-950 px-4 py-24 text-white md:px-6 md:py-32">
+    <section
+      id="day-summary"
+      className="scroll-mt-16 bg-zinc-950 px-4 py-24 text-white md:px-6 md:py-32"
+    >
       <div className="mx-auto max-w-4xl">
         <p className="text-xs uppercase tracking-[0.3em] text-zinc-500">
           The day, totalled
         </p>
         <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-6xl">
-          By bedtime, the divide cost Pia{" "}
+          By bedtime, the divide cost Clara{" "}
           <span className="bg-gradient-to-r from-amber-300 via-rose-400 to-amber-300 bg-clip-text text-transparent">
             {hoursOnly} extra hours
           </span>{" "}

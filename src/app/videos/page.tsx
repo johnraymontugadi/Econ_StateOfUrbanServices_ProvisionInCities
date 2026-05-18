@@ -24,27 +24,45 @@ export default function VideosPage() {
             <li key={v.id}>
               <Card className="group overflow-hidden border-border/60 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
                 <CardContent className="grid gap-6 p-6 md:grid-cols-[1.1fr_1fr] md:p-8">
-                  {/* Visual placeholder */}
-                  <a
-                    href={v.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`Watch: ${v.title}`}
-                    className="group/thumb relative block aspect-video overflow-hidden rounded-xl bg-gradient-to-br from-primary/30 via-accent/20 to-primary/30"
-                  >
-                    <div
-                      aria-hidden
-                      className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.25),transparent_60%)]"
-                    />
-                    <div className="absolute inset-0 grid place-items-center">
-                      <div className="grid h-16 w-16 place-items-center rounded-full bg-background/90 shadow-lg backdrop-blur transition-all duration-300 group-hover/thumb:scale-110 group-hover/thumb:bg-background">
-                        <Play className="h-6 w-6 fill-primary text-primary translate-x-0.5" />
+                  {/* Video player — embedded iframe when we have a YouTube ID,
+                      otherwise a gradient placeholder linking to the source. */}
+                  {v.youtubeId ? (
+                    <div className="relative aspect-video overflow-hidden rounded-xl bg-black">
+                      <iframe
+                        src={`https://www.youtube-nocookie.com/embed/${v.youtubeId}`}
+                        title={v.title}
+                        loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        className="absolute inset-0 h-full w-full border-0"
+                      />
+                      <div className="pointer-events-none absolute left-3 top-3 rounded-md bg-background/85 px-2 py-1 text-xs font-medium backdrop-blur">
+                        Video {String(i + 1).padStart(2, "0")}
                       </div>
                     </div>
-                    <div className="absolute left-3 top-3 rounded-md bg-background/85 px-2 py-1 text-xs font-medium backdrop-blur">
-                      Video {String(i + 1).padStart(2, "0")}
-                    </div>
-                  </a>
+                  ) : (
+                    <a
+                      href={v.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Watch: ${v.title}`}
+                      className="group/thumb relative block aspect-video overflow-hidden rounded-xl bg-gradient-to-br from-primary/30 via-accent/20 to-primary/30"
+                    >
+                      <div
+                        aria-hidden
+                        className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.25),transparent_60%)]"
+                      />
+                      <div className="absolute inset-0 grid place-items-center">
+                        <div className="grid h-16 w-16 place-items-center rounded-full bg-background/90 shadow-lg backdrop-blur transition-all duration-300 group-hover/thumb:scale-110 group-hover/thumb:bg-background">
+                          <Play className="h-6 w-6 fill-primary text-primary translate-x-0.5" />
+                        </div>
+                      </div>
+                      <div className="absolute left-3 top-3 rounded-md bg-background/85 px-2 py-1 text-xs font-medium backdrop-blur">
+                        Video {String(i + 1).padStart(2, "0")}
+                      </div>
+                    </a>
+                  )}
 
                   {/* Content */}
                   <div className="flex flex-col">

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowDown } from "lucide-react";
 import { DivideExperience } from "@/components/divide/divide-experience";
 import { DaySummary } from "@/components/divide/day-summary";
-import { beats, maria, pia } from "@/lib/divide-data";
+import { beats, maria, clara } from "@/lib/divide-data";
 
 export const metadata = {
   title: "The Divide",
@@ -34,19 +34,19 @@ export default function TheDividePage() {
             </span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-300 md:text-xl">
-            Maria lives in Quezon City. Pia lives in Tondo. Same age, same
-            hustle. Different infrastructure. Scroll to watch their day unfold,
-            beat by beat, and see what the urban services divide actually costs.
+            Maria lives in Quezon City. Clara lives in Tondo. Same age, same
+            hustle. Different infrastructure. Step through their day below — beat
+            by beat — and see what the urban services divide actually costs.
           </p>
 
           <div className="mt-10 grid gap-3 sm:grid-cols-2">
             <CharCard char={maria} accent="sky" />
-            <CharCard char={pia} accent="amber" />
+            <CharCard char={clara} accent="amber" />
           </div>
 
           <div className="mt-12 flex items-center gap-3 text-sm text-zinc-400">
             <ArrowDown className="h-4 w-4 animate-bounce" />
-            Scroll to begin · {beats.length} beats, ~6am to 10pm
+            {beats.length} beats · click through or use ← → arrows · ~6am to 10pm
           </div>
         </div>
       </section>
@@ -89,7 +89,7 @@ function CharCard({
   char,
   accent,
 }: {
-  char: typeof maria | typeof pia;
+  char: typeof maria | typeof clara;
   accent: "sky" | "amber";
 }) {
   const accentClass =

@@ -1,5 +1,5 @@
 import { Clock, Coins, Footprints } from "lucide-react";
-import type { Beat, Character, Setting } from "@/lib/divide-data";
+import { formatTime, type Beat, type Character, type Setting } from "@/lib/divide-data";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -32,7 +32,7 @@ function formatCost(value: number) {
 
 export function CharacterPanel({ character, beat }: Props) {
   const styles = settingStyles[character.setting];
-  const moment = character.setting === "formal" ? beat.maria : beat.pia;
+  const moment = character.setting === "formal" ? beat.maria : beat.clara;
 
   return (
     <div
@@ -60,7 +60,7 @@ export function CharacterPanel({ character, beat }: Props) {
             styles.tag,
           )}
         >
-          {beat.time}
+          {formatTime(beat.time)}
         </div>
       </div>
 

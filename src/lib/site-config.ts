@@ -1,11 +1,13 @@
 export const siteConfig = {
-  name: "State of Urban Services",
-  fullName: "State of Urban Services Provision in Cities",
-  tagline: "Examining how cities deliver, distribute, and improve essential services.",
+  name: "The Urban Services Divide",
+  fullName: "The Urban Services Divide — Who Cities Work For, and Who They Don't",
+  tagline:
+    "Beneath modern skylines and smart infrastructure lies a growing divide between the cities that work for everyone and the cities that don't.",
   description:
-    "A research website exploring access, delivery, and gaps in urban service provision — built as a final project for our Economics class.",
+    "A final project for our Economics class on the state of urban services provision in cities — exploring how infrastructure, governance, and technology shape who gets access and who is left behind.",
   navLinks: [
     { href: "/", label: "Home" },
+    { href: "/the-divide", label: "The Divide", featured: true },
     { href: "/blog", label: "Blog" },
     { href: "/papers", label: "Papers" },
     { href: "/videos", label: "Videos" },

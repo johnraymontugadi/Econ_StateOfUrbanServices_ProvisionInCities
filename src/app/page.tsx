@@ -8,46 +8,51 @@ import { siteConfig } from "@/lib/site-config";
 const sections = [
   {
     href: "/blog",
-    label: "Blog",
-    description: "Five short reads on urban services and how cities work.",
+    label: "Critical Perspectives",
+    description:
+      "Five essays on resilient infrastructure, digital utilities, structural inequality, circular metabolism, and inclusive governance.",
     icon: BookOpen,
     accent: "from-primary/30 to-primary/0",
   },
   {
     href: "/papers",
-    label: "Papers",
-    description: "Five academic and journal references shaping our argument.",
+    label: "Academic Compendium",
+    description:
+      "Peer-reviewed research on water provision, smart cities, and urban resilience — summarized in plain English.",
     icon: FileText,
     accent: "from-accent/30 to-accent/0",
   },
   {
     href: "/videos",
-    label: "Videos",
-    description: "Five videos to watch before forming your own opinion.",
+    label: "Multimedia Gallery",
+    description:
+      "Curated lectures and documentaries — from urban metabolism to AI-driven traffic systems.",
     icon: Film,
     accent: "from-chart-3/30 to-chart-3/0",
   },
   {
     href: "/gallery",
-    label: "Gallery",
-    description: "Ten captioned photos from streets, transit, and infrastructure.",
+    label: "Photo Gallery",
+    description:
+      "Ten captioned photographs of the urban services frontline — streets, transit, water, waste.",
     icon: ImageIcon,
     accent: "from-chart-4/30 to-chart-4/0",
   },
   {
     href: "/links",
-    label: "Links",
-    description: "Trusted dashboards, datasets, and further reading.",
+    label: "Further Reading",
+    description:
+      "Trusted datasets, dashboards, and reports for going deeper than this site.",
     icon: Link2,
     accent: "from-chart-5/30 to-chart-5/0",
   },
 ];
 
 const stats = [
-  { number: "5", label: "Blog posts" },
-  { number: "5", label: "Academic papers" },
-  { number: "5", label: "Videos" },
-  { number: "10", label: "Captioned photos" },
+  { number: "1 in 3", label: "urban residents lack basic services" },
+  { number: "3.5B", label: "people without safe sanitation" },
+  { number: "5–10×", label: "water price premium for informal settlers" },
+  { number: "70%", label: "of humanity in cities by 2050" },
 ];
 
 export default function HomePage() {
@@ -78,14 +83,19 @@ export default function HomePage() {
               Economics — Final Group Project
             </div>
 
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-primary animate-in fade-in slide-in-from-bottom-2 duration-500">
+              The Urban Services Divide
+            </p>
+
             <h1 className="text-5xl font-bold tracking-tight md:text-7xl animate-in fade-in slide-in-from-bottom-3 duration-700">
-              The{" "}
+              Who cities{" "}
               <span className="bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-[gradient_6s_ease_infinite]">
-                state
-              </span>{" "}
-              of urban services in{" "}
+                work for
+              </span>
+              {" — "}
+              and who they{" "}
               <span className="relative inline-block">
-                cities
+                don&rsquo;t
                 <svg
                   aria-hidden
                   viewBox="0 0 200 14"
@@ -105,33 +115,37 @@ export default function HomePage() {
             </h1>
 
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl animate-in fade-in slide-in-from-bottom-4 duration-1000">
-              {siteConfig.tagline} We dig into who has access to which services, where
-              gaps appear, and what the data is telling us about the cities we live in.
+              Cities are engines of economic growth, technology, and culture. Yet
+              beneath the modern skylines lies a growing divide: millions of urban
+              residents still lack reliable access to clean water, sanitation,
+              transportation, electricity, and digital connectivity. This is the{" "}
+              <strong className="text-foreground">urban services divide</strong> — and
+              this site is our group&rsquo;s look at it.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3 animate-in fade-in slide-in-from-bottom-5 duration-1000">
               <Link
-                href="/blog"
+                href="/the-divide"
                 className={cn(
                   buttonVariants({ size: "lg" }),
                   "group h-11 px-5 text-base hover:bg-primary/90"
                 )}
               >
-                Start reading
+                See the Manila case study
                 <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
-                href="/gallery"
+                href="/blog"
                 className={cn(
                   buttonVariants({ size: "lg", variant: "outline" }),
                   "h-11 px-5 text-base"
                 )}
               >
-                Browse the gallery
+                Read the essays
               </Link>
             </div>
 
-            <div className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-4">
+            <div className="mt-14 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
               {stats.map((s, i) => (
                 <div
                   key={s.label}
@@ -141,7 +155,7 @@ export default function HomePage() {
                   <div className="bg-gradient-to-br from-primary to-accent bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
                     {s.number}
                   </div>
-                  <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground md:text-sm">
+                  <div className="mt-1 text-xs leading-snug text-muted-foreground md:text-sm">
                     {s.label}
                   </div>
                 </div>
@@ -158,11 +172,11 @@ export default function HomePage() {
             What&apos;s inside
           </p>
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-            Six places to dig into the topic.
+            Five entry points into the divide.
           </h2>
           <p className="mt-3 text-muted-foreground">
-            Each section meets a content requirement from our professor — written analysis,
-            academic sources, video, photography, and curated links.
+            The team&apos;s research, organized into essays, papers, videos, photographs, and
+            curated links — plus a featured interactive case study on Manila.
           </p>
         </div>
 

@@ -2,66 +2,100 @@ import { ArrowUpRight } from "lucide-react";
 import { PageHeader } from "@/components/page-header";
 import { Card, CardContent } from "@/components/ui/card";
 
-const linkGroups = [
+type LinkItem = { label: string; href: string; note: string };
+type LinkGroup = { heading: string; items: LinkItem[] };
+
+const linkGroups: LinkGroup[] = [
   {
-    heading: "Data & dashboards",
+    heading: "Foundational reads (blog sources)",
     items: [
       {
-        label: "Placeholder dataset name",
-        href: "#",
-        note: "Short note on what this dataset shows and why we used it.",
+        label: "Systems Change Lab — Improve Urban Infrastructure Services",
+        href: "https://systemschangelab.org/cities/improve-urban-infrastructure-services",
+        note: "Dashboards of the urban services divide with progress indicators across cities.",
       },
       {
-        label: "Placeholder dashboard",
-        href: "#",
-        note: "What this resource tracks at the city level.",
+        label: "World Bank — The Utilities of Cities",
+        href: "https://blogs.worldbank.org/en/sustainablecities/the-utilities-of-cities",
+        note: "Why urban service delivery is becoming more complex and data-driven.",
+      },
+      {
+        label: "World Resources Institute — Transformations to Solve Urban Inequality",
+        href: "https://www.wri.org/insights/transformations-to-solve-urban-inequality",
+        note: "Seven transformations cities can make to close the service gap.",
+      },
+      {
+        label: "World Bank — Reliable and Inclusive Urban Sanitation",
+        href: "https://blogs.worldbank.org/en/water/reliable-and-inclusive-urban-sanitation--a-driver-of-growth",
+        note: "Sanitation as a driver of growth, health, and productivity.",
+      },
+      {
+        label: "UNDP — Urban Governance Is Vital for Cities to Prosper",
+        href: "https://www.undp.org/blog/urban-governance-vital-cities-prosper",
+        note: "How governance decides whether infrastructure investments actually reach residents.",
       },
     ],
   },
   {
-    heading: "Reports & explainers",
+    heading: "Reports & policy briefs",
     items: [
       {
-        label: "Placeholder report",
-        href: "#",
-        note: "An NGO or think-tank report we found useful.",
+        label: "ODI — Services in the City: Governance and Political Economy",
+        href: "https://odi.org/en/publications/services-in-the-city-governance-and-political-economy-in-urban-service-delivery/",
+        note: "Discussion paper on how political incentives skew urban service delivery.",
       },
       {
-        label: "Placeholder explainer",
-        href: "#",
-        note: "A long-read or visual explainer worth bookmarking.",
+        label: "Local2030 — Access to Urban Services for Inclusive Development in Asia",
+        href: "https://www.local2030.org/library/567/Access-to-Urban-Services-for-Inclusive-Development-in-Asia.pdf",
+        note: "Policy brief drawing on nine Asian cities (PDF).",
+      },
+      {
+        label: "Smart Growth America — More Homes in the Right Places",
+        href: "https://www.smartgrowthamerica.org/knowledge-hub/news/the-smart-growth-approach-more-homes-in-the-right-places-at-the-right-price/",
+        note: "Why housing and transit have to be planned together.",
       },
     ],
   },
   {
-    heading: "Further reading",
+    heading: "Long-form & journalism",
     items: [
       {
-        label: "Placeholder long-form article",
-        href: "#",
-        note: "An article that complements one of the academic papers.",
+        label: "TheCityFix — 7 Major Transformations to Solve Urban Inequality",
+        href: "https://www.thecityfix.com/blog/7-major-transformations-solve-urban-inequality-mark-weston-rachael-king/",
+        note: "Weston & King's overview of how cities can close the inequality gap.",
       },
       {
-        label: "Placeholder podcast / interview",
-        href: "#",
-        note: "Audio source — interview with a planner or economist.",
+        label: "Ground Control — Data's Journey in Shaping Digital Transformation",
+        href: "https://www.groundcontrol.com/blog/datas-journey-in-shaping-digital-transformation-in-utilities/",
+        note: "How IoT and smart meters are changing utility operations.",
+      },
+      {
+        label: "Mongabay — Waste-to-Energy Incinerators in Southeast Asia",
+        href: "https://news.mongabay.com/2022/12/as-waste-to-energy-incinerators-spread-in-southeast-asia-so-do-concerns/",
+        note: "The trade-offs of converting waste into energy at scale in our region.",
+      },
+      {
+        label: "Philippine Information Agency — SMART METRO launch",
+        href: "https://pia.gov.ph/press-release/dost-up-launch-smart-metro-to-advance-government-services-nationwide/",
+        note: "DOST and UP launching a smart-city platform piloted in Iloilo (April 2026).",
       },
     ],
   },
 ];
 
 export const metadata = {
-  title: "Links",
-  description: "Trusted dashboards, datasets, and further reading.",
+  title: "Further Reading",
+  description:
+    "Trusted dashboards, reports, and long-form pieces about the urban services divide.",
 };
 
 export default function LinksPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Links"
-        title="A short reading list."
-        description="Trusted starting points for your own research — datasets, reports, dashboards, and a few long-form pieces we'd recommend."
+        eyebrow="Further Reading"
+        title="A short, useful reading list."
+        description="Curated starting points for going deeper than this site — dashboards, reports, and articles we relied on while researching."
       />
 
       <section className="mx-auto max-w-5xl px-4 py-16 md:px-6">

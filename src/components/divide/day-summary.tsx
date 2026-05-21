@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { dayTotals } from "@/lib/divide-data";
@@ -74,15 +76,18 @@ export function DaySummary() {
             Read the research
             <ArrowUpRight className="ml-1 h-4 w-4" />
           </Link>
-          <Link
-            href="/the-divide"
+          <button
+            type="button"
+            onClick={() =>
+              window.dispatchEvent(new CustomEvent("divide:replay"))
+            }
             className={cn(
               buttonVariants({ size: "lg", variant: "outline" }),
               "h-11 border-white/20 bg-transparent px-5 text-base text-white hover:bg-white/10 hover:text-white",
             )}
           >
             Replay the day
-          </Link>
+          </button>
         </div>
       </div>
     </section>

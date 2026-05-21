@@ -86,7 +86,7 @@ const themedDives = [
 
 const kindStyles: Record<FeaturedItem["kind"], { label: string; icon: typeof BookOpen; tint: string }> = {
   blog: { label: "Blog", icon: BookOpen, tint: "text-primary bg-primary/10" },
-  paper: { label: "Paper", icon: FileText, tint: "text-accent-foreground bg-accent/15" },
+  paper: { label: "Paper", icon: FileText, tint: "text-amber-700 dark:text-amber-300 bg-accent/15" },
   video: { label: "Video", icon: Play, tint: "text-foreground bg-foreground/10" },
 };
 
@@ -244,10 +244,10 @@ export default function HomePage() {
                   className="animate-in fade-in slide-in-from-bottom-6 duration-1000"
                   style={{ animationDelay: `${i * 100}ms` }}
                 >
-                  <div className="bg-gradient-to-br from-primary to-accent bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
+                  <div className="bg-gradient-to-br from-sky-300 to-amber-300 bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
                     {s.number}
                   </div>
-                  <div className="mt-1 text-xs leading-snug text-muted-foreground md:text-sm">
+                  <div className="mt-1 text-xs leading-snug text-zinc-300 md:text-sm">
                     {s.label}
                   </div>
                 </div>

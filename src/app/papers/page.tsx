@@ -39,7 +39,7 @@ export default function PapersPage() {
                       <span aria-hidden>·</span>
                       <span>{p.year}</span>
                     </div>
-                    <h2 className="mt-2 text-lg font-semibold tracking-tight transition-colors group-hover:text-primary md:text-xl">
+                    <h2 className="mt-2 text-lg font-semibold tracking-tight md:text-xl">
                       {p.title}
                     </h2>
                     <p className="mt-1 text-sm text-muted-foreground">{p.authors}</p>
@@ -51,7 +51,7 @@ export default function PapersPage() {
                         <Badge
                           key={t}
                           variant="secondary"
-                          className="border-0 bg-accent/10 text-accent-foreground/80"
+                          className="border-0 bg-accent/10 text-amber-700 dark:text-amber-300"
                         >
                           {t}
                         </Badge>

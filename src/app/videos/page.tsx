@@ -69,7 +69,7 @@ export default function VideosPage() {
                     <p className="text-xs uppercase tracking-widest text-muted-foreground">
                       {v.source}
                     </p>
-                    <h2 className="mt-2 text-xl font-semibold tracking-tight transition-colors group-hover:text-primary md:text-2xl">
+                    <h2 className="mt-2 text-xl font-semibold tracking-tight md:text-2xl">
                       {v.title}
                     </h2>
                     <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">

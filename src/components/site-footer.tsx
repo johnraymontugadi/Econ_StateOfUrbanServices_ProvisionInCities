@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
+import { FooterExplore } from "@/components/footer-explore";
 
 export function SiteFooter() {
   return (
@@ -19,18 +19,7 @@ export function SiteFooter() {
             <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-foreground">
               Explore
             </h4>
-            <ul className="space-y-2">
-              {siteConfig.navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <FooterExplore />
           </div>
 
           <div>

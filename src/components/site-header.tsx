@@ -41,6 +41,17 @@ export function SiteHeader() {
   // values automatically — keeping nav text readable over the dark video.
   const transparent = !scrolled;
 
+  // Clicking a link to the page you're already on scrolls back to the top
+  // instead of being a no-op.
+  const handleNavClick =
+    (href: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+      setOpen(false);
+      if (pathname === href) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    };
+
   return (
     <header
       className={cn(
@@ -54,7 +65,7 @@ export function SiteHeader() {
         <Link
           href="/"
           className="group flex items-center gap-2 text-lg font-semibold tracking-tight"
-          onClick={() => setOpen(false)}
+          onClick={handleNavClick("/")}
         >
           {/* Site logo icon — lives in /public/logo-icon.svg */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -89,10 +100,11 @@ export function SiteHeader() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={handleNavClick(link.href)}
                 className={cn(
                   "relative rounded-md px-3 py-2 text-sm font-medium transition-colors",
                   isFeatured && !isActive
-                    ? "bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent hover:opacity-80"
+                    ? "text-foreground hover:text-foreground/80"
                     : isActive
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground"
@@ -128,7 +140,7 @@ export function SiteHeader() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={() => setOpen(false)}
+                  onClick={handleNavClick(link.href)}
                   className={cn(
                     "rounded-md px-3 py-2 text-sm font-medium transition-colors",
                     isActive

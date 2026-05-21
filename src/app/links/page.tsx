@@ -7,7 +7,7 @@ type LinkGroup = { heading: string; items: LinkItem[] };
 
 const linkGroups: LinkGroup[] = [
   {
-    heading: "Foundational reads (blog sources)",
+    heading: "Blog sources",
     items: [
       {
         label: "Systems Change Lab — Improve Urban Infrastructure Services",
@@ -102,7 +102,7 @@ export default function LinksPage() {
         <div className="flex flex-col gap-12">
           {linkGroups.map((group) => (
             <div key={group.heading}>
-              <h2 className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+              <h2 className="mb-5 pl-1 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
                 {group.heading}
               </h2>
               <div className="grid gap-4 md:grid-cols-2">

@@ -12,6 +12,19 @@ const AUTO_SCROLL_DELAY_MS = 1800;
 export function DivideExperience() {
   const [activeIndex, setActiveIndex] = useState(0);
   const hasAutoScrolledRef = useRef(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // "Replay the day" (dispatched from the day summary below) resets the
+  // timeline to the first beat and scrolls back up to the start.
+  useEffect(() => {
+    const onReplay = () => {
+      hasAutoScrolledRef.current = false;
+      setActiveIndex(0);
+      sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+    window.addEventListener("divide:replay", onReplay);
+    return () => window.removeEventListener("divide:replay", onReplay);
+  }, []);
 
   // Keyboard navigation: ←/→ to step, Home/End to jump.
   useEffect(() => {
@@ -63,7 +76,8 @@ export function DivideExperience() {
 
   return (
     <section
-      className="relative bg-zinc-950 px-4 py-16 md:px-6 md:py-24"
+      ref={sectionRef}
+      className="relative scroll-mt-24 bg-zinc-950 px-4 py-16 md:px-6 md:py-24"
       aria-label="Two lives, one day — interactive timeline"
     >
       <div className="mx-auto max-w-5xl">

@@ -119,7 +119,7 @@ const sections = [
     href: "/gallery",
     label: "Photo Gallery",
     description:
-      "Ten captioned photographs of the urban services frontline — streets, transit, water, waste.",
+      "Twenty captioned photographs of the urban services frontline — streets, transit, water, waste.",
     icon: ImageIcon,
     accent: "from-chart-4/30 to-chart-4/0",
   },

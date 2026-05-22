@@ -50,7 +50,7 @@ export function GalleryLightbox({ photos }: { photos: GalleryPhoto[] }) {
             key={p.src}
             type="button"
             onClick={() => setActiveIndex(i)}
-            aria-label={`Enlarge photo ${i + 1}: ${p.caption}`}
+            aria-label={`Enlarge photo ${i + 1}: ${p.title}`}
             className="group block w-full cursor-zoom-in overflow-hidden rounded-xl border border-border/60 bg-card text-left transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             <span className="relative block aspect-[4/3] overflow-hidden bg-muted">
@@ -65,8 +65,13 @@ export function GalleryLightbox({ photos }: { photos: GalleryPhoto[] }) {
                 Photo {String(i + 1).padStart(2, "0")}
               </span>
             </span>
-            <span className="block p-4 text-sm leading-relaxed text-muted-foreground">
-              {p.caption}
+            <span className="block p-4">
+              <span className="block text-sm font-semibold tracking-tight text-foreground">
+                {p.title}
+              </span>
+              <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">
+                {p.caption}
+              </span>
             </span>
           </button>
         ))}
@@ -139,7 +144,10 @@ export function GalleryLightbox({ photos }: { photos: GalleryPhoto[] }) {
                   {String(photos.length).padStart(2, "0")}
                 </span>
               </span>
-              <p className="mt-3 text-base leading-relaxed text-foreground md:text-lg">
+              <h2 className="mt-2 text-xl font-bold tracking-tight text-foreground md:text-2xl">
+                {active.title}
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:text-base">
                 {active.caption}
               </p>
             </div>

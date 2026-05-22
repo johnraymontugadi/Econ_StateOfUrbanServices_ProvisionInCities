@@ -14,7 +14,7 @@ export default function GalleryPage() {
       <PageHeader
         eyebrow="Gallery"
         title="The services frontline, in photos."
-        description="Photographs from cities, infrastructure, and the everyday services that hold them together — click any photo to enlarge it and read its caption."
+        description="Photographs from cities, infrastructure, and the everyday services that hold them together — click any photo to enlarge it and read its title and caption."
       />
 
       <section className="mx-auto max-w-6xl px-4 py-16 md:px-6">

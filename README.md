@@ -19,7 +19,7 @@ The website is deployed and can be accessed here: https://econ-state-of-urban-se
 
 ## Project Status
 
-This is a school project and is currently in development.
+This is a school project that has been completed and submitted.
 
 ## Tech Stack
 

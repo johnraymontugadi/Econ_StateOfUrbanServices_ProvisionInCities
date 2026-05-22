@@ -5,6 +5,8 @@ github source code for economics final group project
 
 This project explores the **state of urban services provision in cities** — examining how essential services are delivered, who has access to them, and what gaps remain. Our website presents the group's research, analysis, and findings on the topic.
 
+The website is deployed and can be accessed here: https://econ-state-of-urban-services-provis.vercel.app/ 
+
 ## Group Members
 
 - John Raymond Tugadi
